@@ -41,7 +41,7 @@ curl https://compass.coredge.io/api/compass/v1/download/command-line-tool -o orb
 chmod +x orbiter
 ./orbiter login -d devops -u rakeshkotian@coredge.io -p Pune@9980 https://compass.coredge.io
 rm -rf demo-app*tgz
-helm package .
+helm package chart/
 ./orbiter get app-revisions demo-app
 if [ $(./orbiter get app-revisions demo-app | grep -v Revision | wc -l) -gt 4 ]
 then
