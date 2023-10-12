@@ -51,7 +51,7 @@ else
   echo &quot;nothing to delete&quot;
 fi
 ls
-./orbiter create app-revision demo-app $(ls demo-app*tgz) values.yaml 
+	      ./orbiter create app-revision demo-app $(ls demo-app*tgz) chart/values.yaml 
 up_rev=$(./orbiter get app-revisions demo-app | grep -v Revision | tail -n 1 | awk &apos;{split($0, a, &quot; &quot;); print a[1]}&apos;)
 ./orbiter update application demo-app ${up_rev} </command>
       <configuredLocalRules/>
