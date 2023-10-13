@@ -5,6 +5,8 @@ from SocketServer import ThreadingMixIn
 
 PORT_NUMBER = 8080 # Maybe set this to 9000.
 
+VERSION = "v1.0"
+
 class MyHandler(BaseHTTPServer.BaseHTTPRequestHandler):
     def do_GET(s):
         """Respond to a GET request."""
@@ -12,7 +14,7 @@ class MyHandler(BaseHTTPServer.BaseHTTPRequestHandler):
         s.send_header("Content-type", "text/html")
         s.end_headers()
         s.wfile.write("<html><head><title>Coredge.io Demo app</title></head>")
-        s.wfile.write("<body><h2>Demo App Version:- " + os.environ.get('VERSION', "beta") + "</h2>")
+        s.wfile.write("<body><h2>Demo App Version:- " + os.environ.get('VERSION', VERSION) + "</h2>")
         s.wfile.write("</body></html>")
 
 class ThreadingHTTPServer(ThreadingMixIn, BaseHTTPServer.HTTPServer):
